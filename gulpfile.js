@@ -20,6 +20,11 @@ gulp.task('images', () => {
 		.pipe(gulp.dest('dist/images'));
 });
 
+// Rerun the task when a file changes
+gulp.task('watch', () => {
+  gulp.watch('src/index.html', ['html']);
+});
+
 // watch files for changes and reload
 gulp.task('serve', () => {
   browserSync({
