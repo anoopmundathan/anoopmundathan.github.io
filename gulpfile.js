@@ -1,12 +1,14 @@
 var gulp = require('gulp');
 var imageResize = require('gulp-image-resize');
 var htmlmin = require('gulp-htmlmin');
+var minifyInline = require('gulp-minify-inline');
 var browserSync = require('browser-sync');
 
 // HTML Minification
 gulp.task('html', () => {
   return gulp.src('src/index.html')
     .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(minifyInline())
     .pipe(gulp.dest('dist'));
 });
 
